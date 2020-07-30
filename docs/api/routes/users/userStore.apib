@@ -1,0 +1,23 @@
+### Criar usuários [POST /v1/api/users]
+
++ **Rota responsável por criar uma novo usuário na base de dados.**
+
+
++ Request Criação de usuários (application/json)
+    + Attributes
+        <!-- include(../../data/userRequired.apib) -->
+
++ Response 201 (application/json)
+    + Attributes
+        <!-- include(../../data/userList.apib) -->
+
++ Response 400 (application/json)
+    + Attributes
+        + caso 1 (object)
+            + error: User already exists
+        + caso 2 (object)
+            <!-- include(../../util/errorValidation.apib) -->
+
++ Response 401 (application/json)
+    + Attributes
+        <!-- include(../../util/errorTokenNotProvided.apib) -->

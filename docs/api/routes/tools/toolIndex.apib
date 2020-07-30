@@ -1,0 +1,25 @@
+### Pesquisar ferramentas  [GET /v1/api/tools{?tag}{?user_id}]
+
++ **Rota responsável por listar todas as ferramentas ou listar por usuário que criou ou tag da mesma.**
+    + Obs: O nome e url de contato do usuário que cadastrou a ferramenta são retornados junto com a mesma.
+
+
++ Parameters
+    + tag: tagdaferramenta (string, optional) - Tag para pesquisa
+    + user_id: 1 (string, optional) - Usuário para pesquisa
+
++ Request Pesquisa de ferramentas (application/json)
+    + Headers
+        <!-- include(../../util/authToken.apib) -->
+
++ Response 200 (application/json)
+    + Attributes
+        <!-- include(../../data/toolList.apib) -->
+
++ Response 401 (application/json)
+    + Attributes
+        <!-- include(../../util/errorTokenNotProvided.apib) -->
+
++ Response 404 (application/json)
+    + Attributes
+        <!-- include(../../util/noDataFound.apib) -->

@@ -1,0 +1,23 @@
+### Autenticar usuários [POST /v1/api/login]
+
++ **Rota responsável por autenticar usuários no sistema.**
+
++ Request Autenticação de usuários (application/json)
+    + Attributes
+        <!-- include(../../data/sessionCreate.apib) -->
+
++ Response 200 (application/json)
+    + Attributes
+        <!-- include(../../data/sessionResponse.apib) -->
+
++ Response 400 (application/json)
+    + Attributes
+        <!-- include(../../util/errorValidation.apib) -->
+
++ Response 401 (application/json)
+    + Attributes
+        + error: Password does not match
+
++ Response 404 (application/json)
+    + Attributes
+        + error: User not found

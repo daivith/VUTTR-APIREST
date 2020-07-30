@@ -1,0 +1,45 @@
+version: "3"
+services:
+  mongo:
+    image: mongo
+    container_name: "api-db"
+    restart: "always"
+    volumes: 
+        - mongodata:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - backend
+  api:
+    image: node:14.3-slim
+    container_name: "api-node"
+    ports:
+      - "3000:3000"
+    working_dir: "/home/node/app"
+    volumes:
+      - ./:/home/node/app
+    command:
+      - sh
+      - -c
+      - |
+        npm install
+        npm start
+    logging: 
+      driver: "json-file"
+      options: 
+        max-size: "10m"
+        max-file: "5"
+    networks:
+      - backend
+  redis:
+    image: redis:6.0-alpine
+    container_name: "api-redis"
+    ports:
+      - "6379:6379"
+    networks:
+      - backend
+volumes:
+  mongodata:
+networks:
+  backend:
+    driver: "bridge"

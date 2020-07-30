@@ -1,0 +1,22 @@
+### Listar usuários [GET /v1/api/users{?tech}]
+
++ **Rota responsável por listar todos os usuários ou listar por tecnologias que eles utilizam.**
+
++ Parameters
+    + tech: tecnologia (string, optional) - Nome da tecnologia para pesquisa
+
++ Request Listar usuários
+    + Headers
+        <!-- include(../../util/authToken.apib) -->
+
++ Response 200 (application/json)
+    + Attributes
+        <!-- include(../../data/userList.apib) -->
+
++ Response 401 (application/json)
+    + Attributes
+        <!-- include(../../util/errorTokenNotProvided.apib) -->
+
++ Response 404 (application/json)
+    + Attributes
+        <!-- include(../../util/noDataFound.apib) -->

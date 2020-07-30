@@ -1,0 +1,21 @@
+### Excluir ferramentas [DELETE /v1/api/tools/{id}]
+
++ **Rota responsável por excluir ferramentas do sistema pelo seu id.**
+    + Obs: Quando uma ferramenta é removida da base de dados, seu ícone também é removido.
+
++ Parameters
+    + id: id (number, required) - ID da ferramenta
+
++ Request Excluir ferramenta
+    + Headers
+        <!-- include(../../util/authToken.apib) -->
+
++ Response 204 (No content)
+
++ Response 401 (application/json)
+    + Attributes
+        <!-- include(../../util/errorTokenNotProvided.apib) -->
+
++ Response 404 (application/json)
+    + Attributes
+        + error: Tool not found
